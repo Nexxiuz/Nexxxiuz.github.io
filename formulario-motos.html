@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Motos - MotoShop</title>
+    <link rel="stylesheet" href="estylos.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header-container"></header>
+
+    <!-- Contenido Principal -->
+    <main>
+
+        <!-- Formulario de Compra o Registro de Motos -->
+        <section class="formulario-motos">
+            <h2>Formulario de Compra de Motos</h2>
+            <p>Rellena el formulario para comprar la moto de tus sueños.</p>
+
+            <form action="#" method="POST" class="moto-form">
+                <div class="input-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre completo">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required placeholder="Ingresa tu correo electrónico">
+                </div>
+
+                <div class="input-group">
+                    <label for="telefono">Número de Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="Ingresa tu número de teléfono">
+                </div>
+
+                <div class="input-group">
+                    <label for="moto">Modelo de Moto:</label>
+                    <select id="moto" name="moto" required>
+                        <option value="moto1">Moto 1</option>
+                        <option value="moto2">Moto 2</option>
+                        <option value="moto3">Moto 3</option>
+                        <option value="moto4">Moto 4</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="comentarios">Comentarios Adicionales:</label>
+                    <textarea id="comentarios" name="comentarios" rows="4" placeholder="Escribe cualquier comentario o pregunta"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer-container"></footer>
+
+    <script>
+        // Cargar el header
+        fetch("partials/header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+
+        // Cargar el footer
+        fetch("partials/footer.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("footer-container").innerHTML = data);
+    </script>
+
+</body>
+</html>

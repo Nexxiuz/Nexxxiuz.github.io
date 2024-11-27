@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Motos - MotoShop</title>
+    <link rel="stylesheet" href="estylos.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+       
+        <section class="hero">
+            <h2>Bienvenido a MotoShop</h2>
+            <p>Explora nuestra tienda para encontrar la moto de tus sueños.</p>
+        </section>
+<!-- Motos Destacadas (Slider) -->
+<section id="motos" class="featured-motos">
+    <h3>Motos Destacadas</h3>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="img/GSXR1000-1024x676.jpg" alt="Moto 1" class="moto-image"></div>
+            <div class="slide"><img src="img/Foto-portada-25-1.jpg" alt="Moto 2" class="moto-image"></div>
+            <div class="slide"><img src="img/LIFAN-KPF-150-1024x804-2.jpg" alt="Moto 3" class="moto-image"></div>
+            <div class="slide"><img src="img/maxresdefault.jpg" alt="Moto 4" class="moto-image"></div>
+            <div class="slide"><img src="img/GSXR1000-1024x676.jpg" alt="Moto 5" class="moto-image"></div>
+            <div class="slide"><img src="img/moto5.jpg" alt="Moto 6" class="moto-image"></div>
+        </div>
+        <div class="social-menu">
+  <a href="https://facebook.com" target="_blank">
+    <img src="img/faccebook.jpg" alt="Facebook">
+  </a>
+  <a href="https://twitter.com" target="_blank">
+    <img src="img/twitter.png" alt="Twitter">
+  </a>
+  <a href="https://instagram.com" target="_blank">
+    <img src="img/instagram.jpg" alt="Instagram">
+  </a>
+  
+</div>
+        <!-- Controles del slider -->
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+        
+
+        <section class="about">
+            <h3>¿Por qué elegirnos?</h3>
+            <p>En MotoShop, nos apasiona ofrecerte las mejores motos del mercado. Ya sea que busques velocidad, comodidad o estilo, tenemos la moto perfecta para ti.</p>
+        </section>
+    </main>
+    <!-- Sobre Nosotros -->
+        <section class="about">
+            <h3>¿Por qué elegir MotoShop?</h3>
+            <p>Somos más que una tienda de motocicletas; somos un equipo apasionado dedicado a brindarte una experiencia inigualable. En MotoShop, ofrecemos:</p>
+            <ul>
+                <li>Una amplia variedad de modelos de motocicletas, desde deportivas hasta utilitarias.</li>
+                <li>Asesoramiento personalizado para ayudarte a encontrar la moto ideal según tus necesidades.</li>
+                <li>Accesorios y repuestos de alta calidad para mantener tu moto en óptimas condiciones.</li>
+                <li>Soporte técnico y talleres de mantenimiento certificados.</li>
+            </ul>
+            <p>Tu satisfacción es nuestra prioridad. Nos esforzamos por ofrecerte no solo productos de calidad, sino también una experiencia de compra única que te inspire a disfrutar al máximo de la carretera.</p>
+        </section>
+
+        <!-- Beneficios de Comprar en MotoShop -->
+        <section class="benefits">
+            <h3>Beneficios Exclusivos</h3>
+            <p>Al comprar en MotoShop, disfrutas de ventajas únicas:</p>
+            <div class="benefits-list">
+                <div class="benefit">
+                    <h4>Financiamiento Flexible</h4>
+                    <p>Ofrecemos planes de pago adaptados a tu presupuesto, para que adquirir tu moto soñada sea más sencillo que nunca.</p>
+                </div>
+                <div class="benefit">
+                    <h4>Entrega a Domicilio</h4>
+                    <p>Recibe tu motocicleta directamente en la puerta de tu casa con nuestro servicio de entrega rápida y segura.</p>
+                </div>
+                <div class="benefit">
+                    <h4>Garantía Extendida</h4>
+                    <p>Disfruta de una garantía ampliada en todas nuestras motocicletas para mayor tranquilidad.</p>
+                </div>
+                <div class="benefit">
+                    <h4>Eventos Exclusivos</h4>
+                    <p>Participa en nuestras rodadas y eventos para conocer a otros entusiastas del motociclismo.</p>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    <script>
+let currentSlide = 0;
+
+function moveSlide(step) {
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+
+    // Mover el slider a la nueva posición
+    const slider = document.querySelector('.slider');
+    const offset = -currentSlide * 100;
+    slider.style.transform = `translateX(${offset}%)`;
+}
+
+// Configurar el slider para que pase automáticamente cada 5 segundos
+setInterval(() => moveSlide(1), 5000);
+    </script>
+    <script>
+        // Cargar el header
+        fetch("partials/header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+
+        // Cargar el footer
+        fetch("partials/footer.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("footer-container").innerHTML = data);
+    </script>
+</body>
+</html>
